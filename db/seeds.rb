@@ -18,3 +18,5 @@
 @ticket1 = @emp1.tickets.create!(subject: 'broken faucet', age: 2)
 @ticket2 = @emp1.tickets.create!(subject: 'torn carpet', age: 9)
 @ticket3 = @emp1.tickets.create!(subject: 'bug infestation', age: 6)
+@ticket4 = @emp2.tickets.create!(subject: 'leaky pipe', age: 4)
+

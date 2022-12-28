@@ -8,6 +8,7 @@ RSpec.describe 'employee show page' do
     @ticket1 = @emp1.tickets.create!(subject: 'broken faucet', age: 2)
     @ticket2 = @emp1.tickets.create!(subject: 'torn carpet', age: 9)
     @ticket3 = @emp1.tickets.create!(subject: 'bug infestation', age: 6)
+    @ticket4 = @emp2.tickets.create!(subject: 'leaky pipe', age: 4)
   end
 
   it 'lists employees name and department' do
@@ -35,4 +36,21 @@ RSpec.describe 'employee show page' do
     end
   end
 
+  it 'does not show tickets that are not assigned to the employee' do
+    visit "/employees/#{@emp1.id}"
+
+    expect(page).to_not have_content(@ticket4.subject)
+  end
+
+  it 'has a form to add a ticket to the department' do
+    visit "/employees/#{@emp1.id}"
+
+    expect(page).to_not have_content(@ticket4.subject)
+
+    fill_in('ticket_id', with: @ticket4.id)
+    click_button('Submit')
+
+    expect(current_path).to eq("/employees/#{@emp1.id}")
+    expect(page).to have_content(@ticket4.subject)
+  end
 end

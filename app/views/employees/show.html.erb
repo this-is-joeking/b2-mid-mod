@@ -12,3 +12,9 @@
   The oldest ticket subject is <b><%= @oldest_ticket.subject %></b>,
   with an age of <b><%= @oldest_ticket.age %></b>
 </div>
+<p>Add a new ticket using the ticket ID</p>
+<%= form_with url: "/employee_tickets?employee_id=#{@employee.id}", method: :post, local: true do |form| %>
+  <p><%= form.label :ticket_id %>
+  <%= form.number_field :ticket_id %></p>
+  <p><%= form.submit 'Submit' %></p>
+<% end %>
