@@ -14,3 +14,7 @@
 @dept2 = Department.create!(name: 'Muggle Affairs', floor: '9 and 3/4')
 @emp4 = @dept2.employees.create!(name: 'Author Weasley', level: 42)
 @emp5 = @dept2.employees.create!(name: 'Jack Johnson', level: 1)
+
+@ticket1 = @emp1.tickets.create!(subject: 'broken faucet', age: 2)
+@ticket2 = @emp1.tickets.create!(subject: 'torn carpet', age: 9)
+@ticket3 = @emp1.tickets.create!(subject: 'bug infestation', age: 6)

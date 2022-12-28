@@ -1,0 +1,14 @@
+<h1><%= @employee.name %></h1>
+<h4><%= @department.name %></h4>
+<div id="tickets">
+  <ul>
+  <% @tickets.each do |ticket| %>
+    <li><%= ticket.subject %><br>
+    Ticket age: <%= ticket.age %>
+  <% end %>
+  </ul>
+</div>
+<div id="oldest_ticket">
+  The oldest ticket subject is <b><%= @oldest_ticket.subject %></b>,
+  with an age of <b><%= @oldest_ticket.age %></b>
+</div>
